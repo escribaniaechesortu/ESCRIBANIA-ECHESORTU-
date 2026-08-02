@@ -1,0 +1,615 @@
+<meta charset="UTF-8" />
+<title>Sofia Echesortu — v.D Placa grabada</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+  :root {
+    --bg: #0d1912;
+    --card: #132318;
+    --card-2: #16281b;
+    --line: rgba(238, 233, 219, 0.12);
+    --line-strong: rgba(238, 233, 219, 0.22);
+    --ink: #eee9db;
+    --muted: #a9a690;
+    --gold: #c19a4a;
+    --gold-dim: rgba(193, 154, 74, 0.14);
+    --gold-ink: #132318;
+    --seal-ink: #16110a;
+    --focus: #7ecbff;
+    --shadow: rgba(0, 0, 0, 0.45);
+  }
+
+  :root[data-theme="light"] {
+    --bg: #eef0ec;
+    --card: #ffffff;
+    --card-2: #f4f5f0;
+    --line: rgba(15, 25, 15, 0.10);
+    --line-strong: rgba(15, 25, 15, 0.18);
+    --ink: #14201a;
+    --muted: #5c6358;
+    --gold: #93762c;
+    --gold-dim: rgba(147, 118, 44, 0.10);
+    --gold-ink: #fffdf9;
+    --focus: #0d6ea8;
+    --shadow: rgba(20, 30, 20, 0.14);
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #eef0ec;
+      --card: #ffffff;
+      --card-2: #f4f5f0;
+      --line: rgba(15, 25, 15, 0.10);
+      --line-strong: rgba(15, 25, 15, 0.18);
+      --ink: #14201a;
+      --muted: #5c6358;
+      --gold: #93762c;
+      --gold-dim: rgba(147, 118, 44, 0.10);
+      --gold-ink: #fffdf9;
+      --focus: #0d6ea8;
+      --shadow: rgba(20, 30, 20, 0.14);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    min-height: 100%;
+    background: var(--bg);
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 18px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+  }
+
+  .version-tag {
+    width: 100%;
+    max-width: 420px;
+    margin-bottom: 14px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0.7;
+  }
+
+  .serif {
+    font-family: "Copperplate Gothic Light", Copperplate, "Engravers MT", "Perpetua Titling MT", Georgia, serif;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 420px;
+    background: var(--card);
+    border: 1px solid var(--line-strong);
+    border-radius: 18px;
+    box-shadow: 0 24px 60px var(--shadow);
+    overflow: hidden;
+    animation: rise 0.5s ease both;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card { animation: none; }
+  }
+
+  /* ---------- header ---------- */
+
+  .header {
+    padding: 36px 32px 26px;
+    text-align: center;
+  }
+
+  .seal {
+    width: 62px;
+    height: 62px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    border: 1.5px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .seal::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    opacity: 0.55;
+  }
+
+  .seal-feather {
+    width: 25px;
+    height: 25px;
+    color: var(--gold);
+    position: relative;
+  }
+
+  .name {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 400;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  .role {
+    margin: 10px 0 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3.2px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .registro {
+    margin: 5px 0 0;
+    font-size: 10.5px;
+    letter-spacing: 0.8px;
+    color: var(--muted);
+  }
+
+  .rule {
+    width: 44px;
+    height: 1px;
+    margin: 18px auto 0;
+    background: var(--line-strong);
+  }
+
+  .save-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 20px;
+    padding: 11px 16px;
+    border: none;
+    border-radius: 10px;
+    background: var(--gold);
+    color: var(--gold-ink);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: filter 0.15s ease, transform 0.15s ease;
+  }
+
+  .save-contact:hover { filter: brightness(1.08); }
+  .save-contact:active { transform: scale(0.98); }
+  .save-contact svg { width: 16px; height: 16px; }
+
+  /* ---------- sections ---------- */
+
+  .section {
+    padding: 20px 32px;
+    border-top: 1px solid var(--line);
+  }
+
+  .eyebrow {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+
+  /* ---------- rows ---------- */
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    margin: 0 -12px;
+    border-radius: 10px;
+    transition: background 0.15s ease;
+  }
+
+  .row + .row { margin-top: 2px; }
+
+  a.row, button.row-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    width: calc(100% + 24px);
+    text-align: left;
+    background: none;
+    border: none;
+    font: inherit;
+  }
+
+  .row:hover, .row:focus-visible {
+    background: var(--card-2);
+  }
+
+  .row-icon {
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: var(--gold-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+  }
+
+  .row-icon svg { width: 16px; height: 16px; }
+
+  .row-text {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .row-note {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--muted);
+  }
+
+  .row-label {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 2px;
+  }
+
+  .row-value {
+    font-size: 14.5px;
+    color: var(--ink);
+    overflow-wrap: anywhere;
+  }
+
+  .row-value.nowrap {
+    white-space: nowrap;
+    overflow-wrap: normal;
+  }
+
+  .row-action {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--line-strong);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  }
+
+  .row-action:hover { border-color: var(--gold); color: var(--gold); }
+  .row-action svg { width: 14px; height: 14px; }
+
+  .row-action.copied {
+    border-color: var(--gold);
+    background: var(--gold-dim);
+    color: var(--gold);
+  }
+
+  .go-arrow {
+    flex: 0 0 auto;
+    color: var(--muted);
+    display: flex;
+  }
+  .go-arrow svg { width: 15px; height: 15px; }
+  .row:hover .go-arrow, .row:focus-visible .go-arrow { color: var(--gold); }
+
+  .actions-inline {
+    display: flex;
+    gap: 6px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  /* ---------- alias (secondary) ---------- */
+
+  .alias-section {
+    padding: 16px 32px 4px;
+    border-top: 1px solid var(--line);
+  }
+
+  .alias-eyebrow {
+    margin: 0 0 8px;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0.75;
+  }
+
+  .alias-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+  }
+
+  .alias-label {
+    flex: 0 0 auto;
+    width: 50px;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    opacity: 0.85;
+  }
+
+  .alias-value {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: 11.5px;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .alias-copy {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    opacity: 0.75;
+    cursor: pointer;
+    transition: opacity 0.15s ease, color 0.15s ease;
+  }
+
+  .alias-copy svg { width: 12px; height: 12px; }
+
+  .alias-copy:hover { opacity: 1; color: var(--gold); }
+
+  .alias-copy.copied {
+    opacity: 1;
+    color: var(--gold);
+  }
+
+  .footer {
+    padding: 18px 32px 26px;
+    text-align: center;
+  }
+
+  .footer p {
+    margin: 0;
+    font-size: 10.5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>
+
+<p class="version-tag">D · Placa grabada</p>
+<div class="card">
+  <div class="header">
+    <div class="seal">
+      <svg class="seal-feather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" />
+        <line x1="16" y1="8" x2="2" y2="22" />
+        <line x1="17.5" y1="15" x2="9" y2="15" />
+      </svg>
+    </div>
+    <h1 class="name serif">Sofia Echesortu</h1>
+    <p class="role">— Escribana —</p>
+    <p class="registro">Registro Nro. 238</p>
+    <div class="rule"></div>
+    <button class="save-contact" id="save-contact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><line x1="19" y1="8" x2="19" y2="14" /><line x1="22" y1="11" x2="16" y2="11" /></svg>
+      Guardar contacto
+    </button>
+  </div>
+
+  <div class="section">
+    <a class="row" id="map-office" target="_blank" rel="noopener">
+      <span class="row-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+      </span>
+      <span class="row-text">
+        <span class="row-label">Escribania</span>
+        <span class="row-value">Santa Fe 2361, Rosario (2000)</span>
+      </span>
+      <span class="go-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7" /><path d="M7 7h10v10" /></svg>
+      </span>
+    </a>
+
+    <div class="row">
+      <span class="row-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3.5 2" /></svg>
+      </span>
+      <span class="row-text">
+        <span class="row-label">Horarios de atencion</span>
+        <span class="row-value">Lunes a jueves, 9 a 17 hs<br />Viernes, 9 a 13 hs</span>
+        <span class="row-note">Para consultas, coordinar turno previo</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="eyebrow">Contacto</p>
+
+    <div class="row">
+      <span class="row-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2 22 7 12 17 7 18l1-5 9-9Z" /><path d="M20 15v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h5" /></svg>
+      </span>
+      <span class="row-text">
+        <span class="row-label">Telefono / WhatsApp</span>
+        <span class="row-value nowrap">341 339-6620</span>
+      </span>
+      <span class="actions-inline">
+        <button class="row-action" data-copy="+5493413396620" title="Copiar número" aria-label="Copiar número">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2" /><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" /></svg>
+        </button>
+        <a class="row-action" href="https://wa.me/5493413396620" target="_blank" rel="noopener" title="Abrir WhatsApp" aria-label="Abrir WhatsApp">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.6-4.8A8 8 0 1 1 9 19.4Z" /><path d="M9 10a1 1 0 0 0 1 1 4 4 0 0 0 4 4 1 1 0 0 0 1-1" /></svg>
+        </a>
+      </span>
+    </div>
+
+    <div class="row">
+      <span class="row-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>
+      </span>
+      <span class="row-text">
+        <span class="row-label">Correo electronico</span>
+        <span class="row-value">escribaniaechesortu@gmail.com</span>
+      </span>
+      <button class="row-action" data-copy="escribaniaechesortu@gmail.com" title="Copiar correo" aria-label="Copiar correo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2" /><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" /></svg>
+      </button>
+    </div>
+
+  </div>
+
+  <div class="section">
+    <p class="eyebrow">Cocheras cercanas</p>
+
+    <a class="row" href="https://www.google.com/maps/search/?api=1&query=San%20Lorenzo%202365%2C%20Rosario%2C%20Santa%20Fe%2C%20Argentina" target="_blank" rel="noopener">
+      <span class="row-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 0 1-2-2v-2l2-5a2 2 0 0 1 2-1h6a2 2 0 0 1 2 1l2 5v2a2 2 0 0 1-2 2M5 17v2m14-2v2" /><circle cx="7.5" cy="17" r="0.6" /><circle cx="16.5" cy="17" r="0.6" /></svg>
+      </span>
+      <span class="row-text">
+        <span class="row-label">Cochera</span>
+        <span class="row-value">San Lorenzo 2365</span>
+      </span>
+      <span class="go-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7" /><path d="M7 7h10v10" /></svg>
+      </span>
+    </a>
+
+    <a class="row" href="https://www.google.com/maps/search/?api=1&query=Santa%20Fe%202339%2C%20Rosario%2C%20Santa%20Fe%2C%20Argentina" target="_blank" rel="noopener">
+      <span class="row-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 0 1-2-2v-2l2-5a2 2 0 0 1 2-1h6a2 2 0 0 1 2 1l2 5v2a2 2 0 0 1-2 2M5 17v2m14-2v2" /><circle cx="7.5" cy="17" r="0.6" /><circle cx="16.5" cy="17" r="0.6" /></svg>
+      </span>
+      <span class="row-text">
+        <span class="row-label">Cochera</span>
+        <span class="row-value">Santa Fe 2339</span>
+      </span>
+      <span class="go-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7" /><path d="M7 7h10v10" /></svg>
+      </span>
+    </a>
+  </div>
+
+  <div class="alias-section">
+    <p class="alias-eyebrow">Transferencias</p>
+    <div class="alias-row">
+      <span class="alias-label">Pesos</span>
+      <span class="alias-value mono">ESC.SOFIAECHESORTU</span>
+      <button class="alias-copy" data-copy="ESC.SOFIAECHESORTU" title="Copiar alias en pesos" aria-label="Copiar alias en pesos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2" /><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" /></svg>
+      </button>
+    </div>
+    <div class="alias-row">
+      <span class="alias-label">Dolares</span>
+      <span class="alias-value mono">SECHESORTU.DOLARES</span>
+      <button class="alias-copy" data-copy="SECHESORTU.DOLARES" title="Copiar alias en dolares" aria-label="Copiar alias en dolares">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2" /><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" /></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Escribania · Rosario, Santa Fe</p>
+  </div>
+</div>
+
+<script>
+  document.getElementById("map-office").href =
+    "https://www.google.com/maps/search/?api=1&query=" +
+    encodeURIComponent("Santa Fe 2361, Rosario, Santa Fe, Argentina");
+
+  document.getElementById("save-contact").addEventListener("click", () => {
+    const lines = [
+      "BEGIN:VCARD",
+      "VERSION:3.0",
+      "N:Echesortu;Sofia;;;",
+      "FN:Sofia Echesortu",
+      "TITLE:Escribana - Registro Nro. 238",
+      "ORG:Escribania Echesortu",
+      "TEL;TYPE=CELL,WORK:+5493413396620",
+      "EMAIL:escribaniaechesortu@gmail.com",
+      "ADR;TYPE=WORK:;;Santa Fe 2361;Rosario;Santa Fe;2000;Argentina",
+      "END:VCARD",
+    ];
+    const vcard = lines.join("\r\n");
+    const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "Sofia Echesortu - Escribana.vcf";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  });
+
+  async function copyText(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (err) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      let ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      return ok;
+    }
+  }
+
+  document.querySelectorAll("[data-copy]").forEach((btn) => {
+    const original = btn.innerHTML;
+    btn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      const value = btn.getAttribute("data-copy");
+      const ok = await copyText(value);
+      if (ok) {
+        btn.classList.add("copied");
+        btn.innerHTML =
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg>';
+        setTimeout(() => {
+          btn.classList.remove("copied");
+          btn.innerHTML = original;
+        }, 1400);
+      } else {
+        window.prompt("No se pudo copiar automáticamente. Copiá el texto:", value);
+      }
+    });
+  });
+</script>
